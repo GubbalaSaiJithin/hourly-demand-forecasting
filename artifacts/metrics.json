@@ -1,0 +1,60 @@
+{
+  "task": "Rolling one-hour-ahead forecast; previous observed hours available at every origin.",
+  "dataset": "UCI Bike Sharing (Washington DC, 2011-2012), NOT Berlin data.",
+  "source_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+  "versions": {
+    "python": "3.10.0",
+    "sklearn": "1.7.2",
+    "pandas": "2.3.3",
+    "numpy": "2.1.3"
+  },
+  "source_observations": 17379,
+  "missing_hours": 165,
+  "eligible_observations": 16950,
+  "splits": {
+    "train": {
+      "rows": 11865,
+      "start": "2011-01-08 00:00:00",
+      "end": "2012-05-29 15:00:00"
+    },
+    "validation": {
+      "rows": 2542,
+      "start": "2012-05-29 16:00:00",
+      "end": "2012-09-12 13:00:00"
+    },
+    "test": {
+      "rows": 2543,
+      "start": "2012-09-12 14:00:00",
+      "end": "2012-12-31 23:00:00"
+    }
+  },
+  "selection": {
+    "validation_mae": 36.097374156970496,
+    "max_leaf_nodes": 31,
+    "candidates": [
+      {
+        "max_leaf_nodes": 15,
+        "validation_mae": 36.89886830930085
+      },
+      {
+        "max_leaf_nodes": 31,
+        "validation_mae": 36.097374156970496
+      }
+    ]
+  },
+  "test": {
+    "previous_day": {
+      "mae": 77.56940621313409,
+      "rmse": 129.4191126701977
+    },
+    "previous_week": {
+      "mae": 66.42823436885568,
+      "rmse": 112.60921643991648
+    },
+    "gradient_boosting": {
+      "mae": 29.144517189521032,
+      "rmse": 46.749785797343655
+    }
+  },
+  "mae_reduction_vs_best_seasonal_baseline_percent": 56.126310647231065
+}
